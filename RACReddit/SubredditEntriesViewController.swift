@@ -8,19 +8,13 @@
 
 import UIKit
 import SafariServices
-import ReactiveCocoa
 
 final class SubredditEntriesViewController: UITableViewController, UITextFieldDelegate {
 
 	var data: [RedditPost] = []
 	var currentSubredditName: String?
-	var currentFetchDisposable: Disposable?
 
 	@IBOutlet weak var titleTextField: UITextField!
-	
-	deinit {
-		currentFetchDisposable?.dispose()
-	}
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
@@ -66,35 +60,13 @@ final class SubredditEntriesViewController: UITableViewController, UITextFieldDe
 	
 	/// Cancel any existing load and load the data for the current subreddit name.
 	private func loadNewData() {
-		// Make sure we have a current subreddit name
-		guard let currentSubredditName = currentSubredditName else { return }
+		// Can't load data if we don't have a subreddit name.
+		guard let currentSubredditName = currentSubredditName
+			where !currentSubredditName.isEmpty else { return }
 		
-		// Dispose of our current fetch if needed.
-		currentFetchDisposable?.dispose()
-		
-		RedditPost
-			// Create a signal producer.
-			.fetchPostsForSubredditName(currentSubredditName)
-			
-			// Switch events onto UI scheduler (main thread).
-			.observeOn(UIScheduler())
-			
-			// Start the signal producer – produce a signal and listen to its events.
-			.start {[weak self] event in
-				self?.handleFetchEventForSubredditName(currentSubredditName, event: event)
-		}
+		let alert = UIAlertController(title: "Can't load data", message: "No data loading implementation", preferredStyle: .Alert)
+		alert.addAction(UIAlertAction(title: "OK", style: .Cancel, handler: nil))
+		presentViewController(alert, animated: true, completion: nil)
 	}
 	
-	/// We will call this on the main thread for any fetch event that comes through
-	private func handleFetchEventForSubredditName(name: String, event: Event<[RedditPost], NSError>) {
-		switch event {
-		case let .Next(posts):
-			NSLog("View controller received posts: \(posts)")
-			data = posts
-			tableView.reloadData()
-		case let .Failed(error):
-			NSLog("Failed to fetch posts for subreddit: \(name) with error: \(error)")
-		default: ()
-		}
-	}
 }

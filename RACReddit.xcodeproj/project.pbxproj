@@ -11,7 +11,6 @@
 		CC79CC9F1BE538A4005CE149 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CC79CC9D1BE538A4005CE149 /* Main.storyboard */; };
 		CC79CCA11BE538A4005CE149 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CC79CCA01BE538A4005CE149 /* Assets.xcassets */; };
 		CC79CCA41BE538A4005CE149 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CC79CCA21BE538A4005CE149 /* LaunchScreen.storyboard */; };
-		CC79CCAC1BE538B2005CE149 /* RedditFetching.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC79CCAB1BE538B2005CE149 /* RedditFetching.swift */; };
 		CC79CCB21BE53949005CE149 /* ReactiveCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC79CCAD1BE5393C005CE149 /* ReactiveCocoa.framework */; };
 		CC79CCB31BE53949005CE149 /* ReactiveCocoa.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = CC79CCAD1BE5393C005CE149 /* ReactiveCocoa.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		CC79CCB41BE53949005CE149 /* Result.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC79CCAE1BE5393C005CE149 /* Result.framework */; };
@@ -46,7 +45,6 @@
 		CC79CCA01BE538A4005CE149 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CC79CCA31BE538A4005CE149 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CC79CCA51BE538A4005CE149 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		CC79CCAB1BE538B2005CE149 /* RedditFetching.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RedditFetching.swift; sourceTree = "<group>"; };
 		CC79CCAD1BE5393C005CE149 /* ReactiveCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ReactiveCocoa.framework; path = Carthage/Build/iOS/ReactiveCocoa.framework; sourceTree = SOURCE_ROOT; };
 		CC79CCAE1BE5393C005CE149 /* Result.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Result.framework; path = Carthage/Build/iOS/Result.framework; sourceTree = SOURCE_ROOT; };
 		CC79CCB71BE53A4C005CE149 /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = Carthage/Build/iOS/SwiftyJSON.framework; sourceTree = SOURCE_ROOT; };
@@ -131,7 +129,6 @@
 			isa = PBXGroup;
 			children = (
 				CCB18CF51BE67BB80099A613 /* RedditModel.swift */,
-				CC79CCAB1BE538B2005CE149 /* RedditFetching.swift */,
 			);
 			name = "Model + RAC";
 			sourceTree = "<group>";
@@ -209,7 +206,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				CC79CCBC1BE53ABA005CE149 /* SubredditEntriesViewController.swift in Sources */,
-				CC79CCAC1BE538B2005CE149 /* RedditFetching.swift in Sources */,
 				CCB18CF61BE67BB80099A613 /* RedditModel.swift in Sources */,
 				CC79CCBE1BE54008005CE149 /* Utilities.swift in Sources */,
 				CC79CC9A1BE538A4005CE149 /* AppDelegate.swift in Sources */,
